@@ -1,0 +1,76 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+
+  background-color: $bg-white;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+// firefox placeholder fix
+input,
+textarea {
+  &::placeholder {
+    opacity: 1;
+  }
+}
+
+// ie11 X removal
+input {
+  &::-ms-clear,
+  &::-ms-reveal {
+    display: none;
+  }
+}
+
+// chrome autofill background removal
+input:-webkit-autofill {
+  animation-name: autofill;
+  animation-delay: 1s;
+
+  animation-fill-mode: both;
+}
+
+@keyframes autofill {
+  0%,
+  100% {
+    color: $color-default-black; // change for your input base font color
+
+    background: transparent; // change for your input base bg color
+  }
+}
+
+// ios inputs reset
+textarea,
+input:matches([type="email"],
+  [type="number"],
+  [type="password"],
+  [type="search"],
+  [type="tel"],
+  [type="text"],
+  [type="url"]) {
+  appearance: none;
+}
