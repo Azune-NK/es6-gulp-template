@@ -57,9 +57,9 @@ input:-webkit-autofill {
 @keyframes autofill {
   0%,
   100% {
-    color: $color-default-black; // change for your input base font color
+    color: $color-default-black; // change as your input base font color
 
-    background: transparent; // change for your input base bg color
+    background: transparent; // change as your input base bg color
   }
 }
 
