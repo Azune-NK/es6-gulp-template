@@ -81,6 +81,7 @@ gulp.task(`images`, function () {
             plugins: [
               {removeViewBox: false},
               {removeRasterImages: true},
+              {removeUselessStrokeAndFill: false},
             ]
           }),
       ]))
