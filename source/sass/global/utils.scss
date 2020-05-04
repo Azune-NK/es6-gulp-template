@@ -40,3 +40,10 @@ input[type="radio"].visually-hidden {
   overflow-y: scroll;
   position: fixed;
 }
+
+.btn-reset {
+  cursor: pointer;
+  padding: 0;
+  background: $bg-transparent;
+  border: none;
+}

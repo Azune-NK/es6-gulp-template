@@ -30,6 +30,10 @@ textarea {
   resize: vertical;
 }
 
+/* :focus {
+  outline: none;
+} */
+
 // firefox placeholder fix
 input,
 textarea {
@@ -46,6 +50,14 @@ input {
   }
 }
 
+// chrome X removal
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  appearance: none;
+}
+
 // chrome autofill background removal
 input:-webkit-autofill {
   animation-name: autofill;
@@ -54,6 +66,7 @@ input:-webkit-autofill {
   animation-fill-mode: both;
 }
 
+// if you have different inputs - reuse it directly with different color settings
 @keyframes autofill {
   0%,
   100% {

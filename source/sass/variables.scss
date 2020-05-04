@@ -5,27 +5,17 @@
 
 $color-default-black:           #000000;
 $color-default-white:           #ffffff;
+$color-transparent:             rgba(0, 0, 0, 0);
 
 // Base
 
 $color-black:                   #00235e;
 $color-white:                   #f2f2f2;
 $color-blue:                    #00338a;
-$color-light-blue:              #98b1da;
-$color-sky:                     #52baff;
-$color-light-sky:               #f1faff;
-$color-deep-sky:                #2a76dc;
-$color-gray:                    #707f98;
-$color-grayish-blue:            #5b7eb9;
-$color-light-gray:              #e4e4e4;
-$color-dark:                    #3f4d64;
 
 // Borders
 
-$border-color-blue:             #0b3e96;
-$border-color-grayish-blue:     #204c98;
 $border-color-gray:             #e6eaf1;
-$border-color-light-gray:       #dedede;
 
 // Typography
 
@@ -34,24 +24,17 @@ $font-family--:                   "", "Arial", sans-serif;
 $font-color-black:                $color-black; //#00235e - use it for ctrl+f
 $font-color-white:                $color-default-white; //#ffffff
 $font-color-blue:                 $color-blue; //#00338a
-$font-color-light-blue:           $color-light-blue; //#98b1da
-$font-color-sky:                  $color-sky; //#52baff
-$font-color-gray:                 $color-gray; //#707f98;
-$font-color-grayish-blue:         $color-grayish-blue; //#5b7eb9
 
 // Background
 
+$bg-transparent:                  $color-transparent; //rgba(255, 255, 255, 0)
+$bg-black:                        $color-black; //#00235e
 $bg-white:                        $color-white; //#f2f2f2
 $bg-blue:                         $color-blue; //#00338a
-$bg-sky:                          $color-sky; //#52baff
-$bg-light-sky:                    $color-light-sky; //#f1faff
-$bg-deep-sky:                     $color-deep-sky; //#2a76dc;
-$bg-gray:                         $color-gray; //#707f98;
-$bg-light-gray:                   $color-light-gray; //#e4e4e4
 
 // Gradient
 
-$black-to-right:                 linear-gradient(90deg, rgba(0, 10, 42, 0.75) 0%, rgba(0, 10, 42, 0) 76.64%);
+$black-to-right:                  linear-gradient(90deg, rgba(0, 10, 42, 0.75) 0%, rgba(0, 10, 42, 0) 76.64%);
 
 // Viewports
 //---------------------------------
