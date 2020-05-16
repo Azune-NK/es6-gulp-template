@@ -17,6 +17,7 @@ const del = require(`del`);
 const uglify = require(`gulp-uglify`);
 const webpackStream = require(`webpack-stream`);
 const webpackConfig = require(`./webpack.config.js`);
+var concat = require("gulp-concat");
 
 gulp.task(`html`, function () {
   return gulp.src(`source/html/*.html`)
@@ -33,7 +34,7 @@ gulp.task(`css`, function () {
       .pipe(sass())
       .pipe(postcss([autoprefixer({
         grid: true,
-        overrideBrowserslist: ['ie >= 11, > 0.2%'],
+        overrideBrowserslist: [`ie >= 11, > 0.2%`],
       })]))
       .pipe(gulp.dest(`build/css`))
       .pipe(csso())
@@ -48,6 +49,12 @@ gulp.task(`script`, function () {
       .pipe(webpackStream(webpackConfig))
       .pipe(uglify())
       .pipe(gulp.dest(`build/js`));
+});
+
+gulp.task(`concat-js-main`, function () {
+  return gulp.src([`source/js/main.js`, `source/js/utils/**/*.js`, `source/js/modules/**/*.js`])
+    .pipe(concat(`main.readonly.js`))
+    .pipe(gulp.dest(`build/js`));
 });
 
 gulp.task(`svgo`, function () {
@@ -138,6 +145,7 @@ gulp.task(`build`, gulp.series(`clean`,
     `css`,
     `sprite`,
     `script`,
+    `concat-js-main`,
     `html`
 ));
 
