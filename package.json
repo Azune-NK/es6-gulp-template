@@ -4,7 +4,8 @@
   "private": true,
   "browserslist": [
     "last 2 versions",
-    "IE 11"
+    "IE 11",
+    "Firefox ESR"
   ],
   "scripts": {
     "editorconfig": "editorconfig-cli",

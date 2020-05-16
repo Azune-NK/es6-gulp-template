@@ -34,7 +34,6 @@ gulp.task(`css`, function () {
       .pipe(sass())
       .pipe(postcss([autoprefixer({
         grid: true,
-        overrideBrowserslist: [`ie >= 11, > 0.2%`],
       })]))
       .pipe(gulp.dest(`build/css`))
       .pipe(csso())
