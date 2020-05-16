@@ -18,11 +18,12 @@ const uglify = require(`gulp-uglify`);
 const webpackStream = require(`webpack-stream`);
 const webpackConfig = require(`./webpack.config.js`);
 
-gulp.task(`script`, function () {
-  return gulp.src([`source/js/main.js`])
-      .pipe(webpackStream(webpackConfig))
-      .pipe(uglify())
-      .pipe(gulp.dest(`build/js`));
+gulp.task(`html`, function () {
+  return gulp.src(`source/html/*.html`)
+      .pipe(posthtml([
+        include(),
+      ]))
+      .pipe(gulp.dest(`build`));
 });
 
 gulp.task(`css`, function () {
@@ -34,11 +35,55 @@ gulp.task(`css`, function () {
         grid: true,
         overrideBrowserslist: ['ie >= 11, > 0.2%'],
       })]))
+      .pipe(gulp.dest(`build/css`))
       .pipe(csso())
       .pipe(rename(`style.min.css`))
       .pipe(sourcemap.write(`.`))
       .pipe(gulp.dest(`build/css`))
       .pipe(server.stream());
+});
+
+gulp.task(`script`, function () {
+  return gulp.src([`source/js/main.js`])
+      .pipe(webpackStream(webpackConfig))
+      .pipe(uglify())
+      .pipe(gulp.dest(`build/js`));
+});
+
+gulp.task(`svgo`, function () {
+  return gulp.src(`source/img/**/*.{svg}`)
+      .pipe(imagemin([
+        imagemin.svgo({
+            plugins: [
+              {removeViewBox: false},
+              {removeRasterImages: true},
+              {removeUselessStrokeAndFill: false},
+            ]
+          }),
+      ]))
+      .pipe(gulp.dest(`source/img`));
+});
+
+gulp.task(`imagemin`, function () {
+  return gulp.src(`source/img/**/*.{png,jpg}`)
+      .pipe(imagemin([
+        imagemin.optipng({optimizationLevel: 3}),
+        imagemin.mozjpeg({quality: 75, progressive: true}),
+      ]))
+      .pipe(gulp.dest(`source/img`));
+});
+
+gulp.task(`webp`, function () {
+  return gulp.src(`source/img/**/*.{png,jpg}`)
+      .pipe(webp({quality: 90}))
+      .pipe(gulp.dest(`source/img`));
+});
+
+gulp.task(`sprite`, function () {
+  return gulp.src(`source/img/sprite/*.svg`)
+      .pipe(svgstore({inlineSvg: true}))
+      .pipe(rename(`sprite_auto.svg`))
+      .pipe(gulp.dest(`build/img`));
 });
 
 gulp.task(`server`, function () {
@@ -72,44 +117,6 @@ gulp.task(`copypngjpg`, function () {
       .pipe(gulp.dest(`build`));
 });
 
-gulp.task(`images`, function () {
-  return gulp.src(`source/img/**/*.{png,jpg,svg}`)
-      .pipe(imagemin([
-        imagemin.optipng({optimizationLevel: 3}),
-        imagemin.mozjpeg({quality: 75, progressive: true}),
-        imagemin.svgo({
-            plugins: [
-              {removeViewBox: false},
-              {removeRasterImages: true},
-              {removeUselessStrokeAndFill: false},
-            ]
-          }),
-      ]))
-
-      .pipe(gulp.dest(`source/img`));
-});
-
-gulp.task(`webp`, function () {
-  return gulp.src(`source/img/**/*.{png,jpg}`)
-      .pipe(webp({quality: 90}))
-      .pipe(gulp.dest(`source/img`));
-});
-
-gulp.task(`sprite`, function () {
-  return gulp.src(`source/img/sprite/*.svg`)
-      .pipe(svgstore({inlineSvg: true}))
-      .pipe(rename(`sprite_auto.svg`))
-      .pipe(gulp.dest(`build/img`));
-});
-
-gulp.task(`html`, function () {
-  return gulp.src(`source/html/*.html`)
-      .pipe(posthtml([
-        include(),
-      ]))
-      .pipe(gulp.dest(`build`));
-});
-
 gulp.task(`copy`, function () {
   return gulp.src([
     `source/fonts/**/*.{woff,woff2}`,
@@ -126,12 +133,12 @@ gulp.task(`clean`, function () {
 });
 
 gulp.task(`build`, gulp.series(`clean`,
-    `images`,
-    //`webp`,
+    `svgo`,
     `copy`,
     `css`,
     `sprite`,
     `script`,
     `html`
 ));
+
 gulp.task(`start`, gulp.series(`build`, `server`));

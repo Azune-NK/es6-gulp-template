@@ -1,4 +1,3 @@
-html,
 body {
   font-style: normal;
   font-weight: 400;
@@ -6,6 +5,9 @@ body {
   line-height: 24px;
   font-family: $font-family--;
   color: $color-default-black;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 a {

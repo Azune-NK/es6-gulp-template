@@ -37,13 +37,13 @@ input[type="radio"].visually-hidden {
 }
 
 .scroll-lock {
-  overflow-y: scroll;
+  overflow-y: auto;
   position: fixed;
 }
 
 .btn-reset {
   cursor: pointer;
   padding: 0;
-  background: $bg-transparent;
+  background: $color-transparent;
   border: none;
 }

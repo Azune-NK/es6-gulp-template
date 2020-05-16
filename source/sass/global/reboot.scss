@@ -10,14 +10,14 @@ html {
 
 html,
 body {
-  height: 100%;
   margin: 0;
   padding: 0;
+}
 
+body {
+  width: 100%;
+  height: 100%;
   background-color: $bg-white;
-
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 img,
@@ -59,6 +59,8 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 // chrome autofill background removal
+// if you have different colored inputs -
+// delete this and reuse it directly with different color settings and animation name
 input:-webkit-autofill {
   animation-name: autofill;
   animation-delay: 1s;
@@ -66,7 +68,6 @@ input:-webkit-autofill {
   animation-fill-mode: both;
 }
 
-// if you have different inputs - reuse it directly with different color settings
 @keyframes autofill {
   0%,
   100% {
