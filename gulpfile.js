@@ -138,7 +138,8 @@ gulp.task(`clean`, function () {
   return del(`build`);
 });
 
-gulp.task(`build`, gulp.series(`clean`,
+gulp.task(`build`, gulp.series(
+    `clean`,
     `svgo`,
     `copy`,
     `css`,
