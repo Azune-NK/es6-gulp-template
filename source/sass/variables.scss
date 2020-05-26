@@ -9,25 +9,25 @@ $color-transparent:             rgba(0, 0, 0, 0);
 
 // Base
 
-$color-black:                   #00235e;
+$color-black:                     $color-default-black;
 $color-white:                   #f2f2f2;
 $color-blue:                    #00338a;
 
 // Borders
 
-$border-color-gray:             #e6eaf1;
+$border-color-blue:               $color-blue; //#00338a - use it for ctrl+f
 
 // Typography
 
 $font-family--:                   "", "Arial", sans-serif;
 
-$font-color-black:                $color-black; //#00235e - use it for ctrl+f
+$font-color-black:                $color-black; //#000000
 $font-color-white:                $color-default-white; //#ffffff
 $font-color-blue:                 $color-blue; //#00338a
 
 // Background
 
-$bg-black:                        $color-black; //#00235e
+$bg-black:                        $color-black; //#000000
 $bg-white:                        $color-white; //#f2f2f2
 $bg-blue:                         $color-blue; //#00338a
 
@@ -35,22 +35,22 @@ $bg-blue:                         $color-blue; //#00338a
 
 $black-to-right:                  linear-gradient(90deg, rgba(0, 10, 42, 0.75) 0%, rgba(0, 10, 42, 0) 76.64%);
 
-// Viewports
-//---------------------------------
-
-$viewport--sm:                   320px;
-$viewport--md:                   768px;
-$viewport--lg:                   1024px;
-$viewport--xl:                   1400px;
-
 // Animation
 //---------------------------------
 
-$transition-settings:            0.3s ease;
-$modal-animation:                0.6s cubic-bezier(0.55, 0, 0.1, 1);
+$transition-settings:             0.3s ease;
+$modal-animation:                 0.6s cubic-bezier(0.55, 0, 0.1, 1);
+
+// Viewports
+//---------------------------------
+
+$viewport--sm:                    320px;
+$viewport--md:                    768px;
+$viewport--lg:                    1024px;
+$viewport--xl:                    1400px;
 
 // Retina
 //---------------------------------
 
-$retina-dpi:                     144dpi;
-$retina-dppx:                    1.5dppx;
+$retina-dpi:                      144dpi;
+$retina-dppx:                     1.5dppx;
