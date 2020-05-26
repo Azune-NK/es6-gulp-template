@@ -4,13 +4,13 @@ body {
   font-size: 16px;
   line-height: 24px;
   font-family: $font-family--;
-  color: $color-black;
+  color: $font-color-black;
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 a {
-  color: $color-black;
+  color: $font-color-black;
   text-decoration: none;
 }
