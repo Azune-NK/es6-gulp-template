@@ -45,6 +45,10 @@ textarea {
   }
 }
 
+select {
+  border-radius: 0;
+}
+
 // ie11 X removal
 input {
   &::-ms-clear,
@@ -75,24 +79,14 @@ input[type="number"] {
 
 // chrome autofill background removal
 // if you have different colored inputs -
-// delete this and reuse it directly with different color settings and animation name
+// delete this and reuse it directly with different color settings
 input:-webkit-autofill {
-  animation-name: autofill;
-  animation-delay: 1s;
-
-  animation-fill-mode: both;
-}
-
-@keyframes autofill {
-  0%,
-  100% {
-    color: $font-color-black; // change as your input base font color
-
-    background: transparent; // change as your input base bg color
-  }
+  -webkit-text-fill-color: $font-color-black;
+  box-shadow: inset 0 0 0 1000px $bg-white;
 }
 
 // ios inputs reset
+select,
 textarea,
 input:matches([type="email"],
   [type="number"],
