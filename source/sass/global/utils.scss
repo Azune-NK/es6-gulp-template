@@ -16,6 +16,19 @@
   min-height: 100vh;
   overflow-x: hidden;
 
+  &--no-scrollbar { // use it for min-height: 100vh pages to visually disable scrollbar
+    height: 100vh;
+
+    &::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+      display: none;
+    }
+
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
   .header,
   .footer {
     flex-shrink: 0;

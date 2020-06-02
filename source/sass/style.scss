@@ -25,3 +25,13 @@
 
 @import "blocks/header";
 @import "blocks/footer";
+
+// ! use it to disable hover, focus on touch
+// but dont use if for inputs, textarea etc - all text fields
+
+/* @media (hover: hover), screen and (min-width: 0\0) {
+  &:hover,
+  &:focus {
+    color: red;
+  }
+} */
