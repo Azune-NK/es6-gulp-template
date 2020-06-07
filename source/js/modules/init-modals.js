@@ -1,9 +1,9 @@
 import {setupModal} from '../utils/modal';
 
 const modalFeedback = document.querySelector(`.modal--feedback`);
-const modalFeedbackBtn = document.querySelectorAll(`a[data-modal="feedback"]`);
+const modalFeedbackBtn = document.querySelectorAll(`[data-modal="feedback"]`);
 const modalSuccess = document.querySelector(`.modal--success`);
-const modalSuccessBtns = document.querySelectorAll(`a[data-modal="success"]`);
+const modalSuccessBtns = document.querySelectorAll(`[data-modal="success"]`);
 
 // аргументы setupModal(modalWindow, modalBtns, openCallback, closeCallback)
 const initModals = () => {
