@@ -2,7 +2,7 @@
 //---------------------------------
 
 @import "vendor/normalize";
-@import "vendor/swiper";
+// @import "vendor/swiper";
 
 // Global
 //---------------------------------
@@ -15,19 +15,18 @@
 @import "global/utils";
 @import "global/container";
 
-// Components
-//---------------------------------
-
-@import "components/component";
-
 // Blocks
 //---------------------------------
 
 @import "blocks/header";
 @import "blocks/footer";
+@import "blocks/modal";
 
-// ! use it to disable hover, focus on touch
-// but dont use if for inputs, textarea etc - all text fields
+
+// используйте это для отключения ховеров на тач устройствах
+// ! но не используйте это для текстовых полей ( input, textarea )
+// также для любых transition обязательно указывайте transition-property
+// transition: color $transition-settings, а не transition: $transition-settings
 
 /* @media (hover: hover), screen and (min-width: 0\0) {
   &:hover,

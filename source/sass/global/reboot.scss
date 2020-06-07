@@ -18,19 +18,21 @@ body {
   width: 100%;
   height: 100%;
 
-  background-color: $bg-white;
+  background-color: $color-white;
 }
 
 img,
 video {
+  display: block;
   max-width: 100%;
   height: auto;
 }
 
 textarea {
-  resize: vertical;
+  resize: none;
 }
 
+// если вы убираете outline - убедитесь что для всех интерактивных элементов есть кастомный стиль фокуса
 /* :focus {
   outline: none;
 } */
@@ -61,7 +63,7 @@ input {
   }
 }
 
-// chrome X removal
+// chrome search X removal
 input[type="search"]::-webkit-search-decoration,
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-results-button,
@@ -82,11 +84,12 @@ input[type="number"] {
 }
 
 // chrome autofill background removal
-// if you have different colored inputs -
-// delete this and reuse it directly with different color settings
+// Если на проекте у инпутов используются разные цвета фонов\текста -
+// удалите это из глобала и используйте локально с нужными цветами
 input:-webkit-autofill {
-  -webkit-text-fill-color: $font-color-black;
-  box-shadow: inset 0 0 0 1000px $bg-white;
+  box-shadow: inset 0 0 0 1000px $color-white;
+
+  -webkit-text-fill-color: $color-black;
 }
 
 // ios inputs reset

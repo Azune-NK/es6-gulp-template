@@ -16,17 +16,16 @@
   min-height: 100vh;
   overflow-x: hidden;
 
-  &--no-scrollbar { // use it for min-height: 100vh pages to visually disable scrollbar
+  // используйте для страниц с min-height: 100vh для визуального скрытия скроллбара
+  &--no-scrollbar {
     height: 100vh;
-
-    &::-webkit-scrollbar {
-      width: 0;
-      height: 0;
-      display: none;
-    }
 
     -ms-overflow-style: none;
     scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 
   .header,

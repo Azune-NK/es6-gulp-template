@@ -3,54 +3,42 @@
 
 // Default
 
-$color-default-black:           #000000;
-$color-default-white:           #ffffff;
-$color-transparent:             rgba(0, 0, 0, 0);
+$color-default-black:             #000000;
+$color-default-white:             #ffffff;
+$color-transparent:               rgba(0, 0, 0, 0);
 
 // Base
 
-$color-black:                     $color-default-black;
-$color-white:                   #f2f2f2;
-$color-blue:                    #00338a;
-
-// Borders
-
-$border-color-blue:               $color-blue; //#00338a - use it for ctrl+f
-
-// Typography
-
-$font-family--:                   "", "Arial", sans-serif;
-
-$font-color-black:                $color-black; //#000000
-$font-color-white:                $color-default-white; //#ffffff
-$font-color-blue:                 $color-blue; //#00338a
-
-// Background
-
-$bg-black:                        $color-black; //#000000
-$bg-white:                        $color-white; //#f2f2f2
-$bg-blue:                         $color-blue; //#00338a
+$color-black:                     #0e0e0e;
+$color-white:                     #f2f2f2;
+$color-blue:                      #2c39f2;
 
 // Gradient
 
-$black-to-right:                  linear-gradient(90deg, rgba(0, 10, 42, 0.75) 0%, rgba(0, 10, 42, 0) 76.64%);
+$black-to-right:                    linear-gradient(90deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0) 75%);
+
+// Typography
+//---------------------------------
+
+$font-family--:                     "", "Arial", sans-serif;
 
 // Animation
 //---------------------------------
 
-$transition-settings:             0.3s ease;
-$modal-animation:                 0.6s cubic-bezier(0.55, 0, 0.1, 1);
+$default-transition-settings:       0.3s ease;
+$modal-transition-settings:         0.6s cubic-bezier(0.55, 0, 0.1, 1);
 
 // Viewports
 //---------------------------------
 
-$viewport--sm:                    320px;
-$viewport--md:                    768px;
-$viewport--lg:                    1024px;
-$viewport--xl:                    1400px;
+$viewport--sm:                      320px;
+$viewport--md:                      768px;
+$viewport--lg:                      1024px;
+$viewport--xl:                      1440px;
+$viewport--xxl:                     1920px;
 
 // Retina
 //---------------------------------
 
-$retina-dpi:                      144dpi;
-$retina-dppx:                     1.5dppx;
+$retina-dpi:                        144dpi;
+$retina-dppx:                       1.5dppx;

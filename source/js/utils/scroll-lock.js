@@ -1,5 +1,6 @@
 const body = document.querySelector(`body`);
 
+// eslint-disable-next-line consistent-return
 const getScrollbarWidth = () => {
   const outer = document.createElement(`div`);
   outer.style.visibility = `hidden`;
@@ -37,4 +38,4 @@ const enableScrolling = () =>{
   window.scrollTo(0, +body.dataset.scrollY);
 };
 
-export {enableScrolling, disableScrolling};
+export {disableScrolling, enableScrolling};

@@ -1,1 +1,1 @@
-import './vendor/swiper';
+// import './vendor/swiper';

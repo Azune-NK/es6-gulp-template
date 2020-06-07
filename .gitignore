@@ -4,7 +4,6 @@
 package-lock.json
 *.ai
 *.log
-*.pdf
 *.psd
 *.sublime*
 node_modules/

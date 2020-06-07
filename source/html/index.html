@@ -2,10 +2,15 @@
 <html lang="ru">
 <head>
 
-  <include src="source/html/base/head.html"></include>
+  @@include("source/html/base/head.html")
   <title>Оглавление</title>
 
   <style>
+    .container {
+      padding-top: 50px;
+      padding-bottom: 50px;
+    }
+
     a {
       color: blue;
     }
@@ -15,7 +20,7 @@
 <body>
 
   <main>
-    <div class="container" style="padding-top: 50px; padding-bottom: 50px;">
+    <div class="container">
       <h1>Список страниц</h1>
       <ol>
         <li>
