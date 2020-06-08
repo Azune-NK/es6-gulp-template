@@ -25,14 +25,13 @@
     @@include("source/html/base/footer.html")
 
     @@include("source/html/base/modal.html", {
-      "src": "modal-feedback",
-      "mod": "feedback"
+      "name": "feedback"
     })
 
     @@include("source/html/base/modal.html", {
-      "src": "modal-success",
-      "mod": "success",
-      "responsive": true
+      "name": "success",
+      "responsive": true,
+      "mod": "some-mod"
     })
   </div>
 
