@@ -1,13 +1,13 @@
-import {forEachPolyfill} from './utils/polyfill-foreach';
-import {initIe11Download} from './utils/init-ie11-download';
+import {polyfillForEach} from './utils/polyfill-foreach';
+import {polyfillIe11Download} from './utils/polyfill-ie11-download';
 
 import {initModals} from './modules/init-modals';
 
 // Utils
 // ---------------------------------
 
-forEachPolyfill();
-initIe11Download();
+polyfillForEach();
+polyfillIe11Download();
 
 // Modules
 // ---------------------------------

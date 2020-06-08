@@ -25,7 +25,7 @@ const ie11Download = (el) => {
 
 const downloadLinks = document.querySelectorAll(`a[download]`);
 
-const initIe11Download = () => {
+const polyfillIe11Download = () => {
   if (window.navigator.msSaveBlob) {
     if (downloadLinks.length) {
       downloadLinks.forEach((el) => {
@@ -35,4 +35,4 @@ const initIe11Download = () => {
   }
 };
 
-export {initIe11Download};
+export {polyfillIe11Download};
