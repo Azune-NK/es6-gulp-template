@@ -21,7 +21,7 @@
 
 ## Краткое описание каждой таски.
 
-1. Преобразовает компонентов `@@include("source/html/base/head.html")` в готовый html.
+1. Преобразовает компоненты `@@include("source/html/base/head.html")` в готовый html.
 
 ```js
   gulp.task(`html`, function () {
@@ -57,7 +57,7 @@
   });
 ```
 
-3. Преобразовает js ES6 в ES5 и его минификация. 
+3. Преобразовает js ES6 в ES5 и минифицирует его. 
 
 ```js
   gulp.task(`script`, function () {
