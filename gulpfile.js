@@ -1,4 +1,3 @@
-const path = require(`path`);
 const gulp = require(`gulp`);
 const plumber = require(`gulp-plumber`);
 const sourcemap = require(`gulp-sourcemaps`);
@@ -11,20 +10,23 @@ const rename = require(`gulp-rename`);
 const imagemin = require(`gulp-imagemin`);
 const webp = require(`gulp-webp`);
 const svgstore = require(`gulp-svgstore`);
-const posthtml = require(`gulp-posthtml`);
-const include = require(`posthtml-include`);
 const del = require(`del`);
 const uglify = require(`gulp-uglify`);
 const webpackStream = require(`webpack-stream`);
 const webpackConfig = require(`./webpack.config.js`);
-var concat = require("gulp-concat");
+const concat = require(`gulp-concat`);
+const fileinclude = require(`gulp-file-include`);
 
 gulp.task(`html`, function () {
-  return gulp.src(`source/html/*.html`)
-      .pipe(posthtml([
-        include(),
-      ]))
-      .pipe(gulp.dest(`build`));
+  return gulp.src([`source/html/*.html`])
+    .pipe(fileinclude({
+      prefix: `@@`,
+      basepath: `@root`,
+      context: { // глобальные переменные для include
+        test: `text`
+      }
+    }))
+    .pipe(gulp.dest(`build`));
 });
 
 gulp.task(`css`, function () {
@@ -50,12 +52,6 @@ gulp.task(`script`, function () {
       .pipe(gulp.dest(`build/js`));
 });
 
-gulp.task(`concat-js-main`, function () {
-  return gulp.src([`source/js/main.js`, `source/js/utils/**/*.js`, `source/js/modules/**/*.js`])
-    .pipe(concat(`main.readonly.js`))
-    .pipe(gulp.dest(`build/js`));
-});
-
 gulp.task(`svgo`, function () {
   return gulp.src(`source/img/**/*.{svg}`)
       .pipe(imagemin([
@@ -67,21 +63,6 @@ gulp.task(`svgo`, function () {
             ]
           }),
       ]))
-      .pipe(gulp.dest(`source/img`));
-});
-
-gulp.task(`imagemin`, function () {
-  return gulp.src(`source/img/**/*.{png,jpg}`)
-      .pipe(imagemin([
-        imagemin.optipng({optimizationLevel: 3}),
-        imagemin.mozjpeg({quality: 75, progressive: true}),
-      ]))
-      .pipe(gulp.dest(`source/img`));
-});
-
-gulp.task(`webp`, function () {
-  return gulp.src(`source/img/**/*.{png,jpg}`)
-      .pipe(webp({quality: 90}))
       .pipe(gulp.dest(`source/img`));
 });
 
@@ -101,11 +82,11 @@ gulp.task(`server`, function () {
     ui: false,
   });
 
+  gulp.watch(`source/html/**/*.html`, gulp.series(`html`, `refresh`));
   gulp.watch(`source/sass/**/*.{scss,sass}`, gulp.series(`css`));
+  gulp.watch(`source/js/**/*.js`, gulp.series(`script`, `refresh`));
   gulp.watch(`source/img/**/*.svg`, gulp.series(`copysvg`, `sprite`, `html`, `refresh`));
   gulp.watch(`source/img/**/*.{png,jpg}`, gulp.series(`copypngjpg`, `html`, `refresh`));
-  gulp.watch(`source/html/**/*.html`, gulp.series(`html`, `refresh`));
-  gulp.watch(`source/js/**/*.js`, gulp.series(`script`, `refresh`));
 });
 
 gulp.task(`refresh`, function (done) {
@@ -126,9 +107,10 @@ gulp.task(`copypngjpg`, function () {
 gulp.task(`copy`, function () {
   return gulp.src([
     `source/fonts/**/*.{woff,woff2}`,
-    `source/img/**`,
-    `source/video/**`,
     `source/favicon/**`,
+    `source/img/**`,
+    `source/video/**`, // учтите, что иногда git искажает видеофайлы, pdf и gif - проверяйте и если обнаруживаете баги - скидывайте тестировщику такие файлы напрямую
+    `source/downloads/**`,
   ], {
     base: `source`,
   })
@@ -143,11 +125,36 @@ gulp.task(`build`, gulp.series(
     `clean`,
     `svgo`,
     `copy`,
-    `css`,
     `sprite`,
+    `css`,
     `script`,
-    `concat-js-main`,
     `html`
 ));
 
 gulp.task(`start`, gulp.series(`build`, `server`));
+
+// Optional tasks
+//---------------------------------
+// Вызывайте через `npm run taskName`
+
+gulp.task(`webp`, function () {
+  return gulp.src(`source/img/**/*.{png,jpg}`)
+      .pipe(webp({quality: 90}))
+      .pipe(gulp.dest(`source/img`));
+});
+
+gulp.task(`imagemin`, function () {
+  return gulp.src(`build/img/**/*.{png,jpg}`)
+      .pipe(imagemin([
+        imagemin.optipng({optimizationLevel: 3}),
+        imagemin.mozjpeg({quality: 75, progressive: true}),
+      ]))
+      .pipe(gulp.dest(`build/img`));
+});
+
+// для отправки заказчику неминифицированного js "для чтения"
+gulp.task(`concat-js`, function () {
+  return gulp.src([`source/js/main.js`, `source/js/utils/**/*.js`, `source/js/modules/**/*.js`])
+    .pipe(concat(`main.readonly.js`))
+    .pipe(gulp.dest(`build/js`));
+});
