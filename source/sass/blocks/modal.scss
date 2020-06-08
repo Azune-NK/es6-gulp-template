@@ -61,14 +61,18 @@
 
   &__close-btn {
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 15px;
+    right: 15px;
   }
 
   &--responsive {
     .modal__content {
       width: 100%;
     }
+  }
+
+  &--no-scale {
+    transform: none;
   }
 
   &--active {
