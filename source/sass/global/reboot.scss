@@ -18,7 +18,7 @@ body {
   width: 100%;
   height: 100%;
 
-  background-color: $color-white;
+  background-color: $color-default-white;
 }
 
 img,
@@ -32,10 +32,19 @@ textarea {
   resize: none;
 }
 
-// если вы убираете outline - убедитесь что для всех интерактивных элементов есть кастомный стиль фокуса
+// если вы убираете outline - убедитесь, что для всех интерактивных элементов есть кастомный стиль фокуса
 /* :focus {
   outline: none;
 } */
+
+// chrome autofill background removal
+// Если на проекте у инпутов используются разные цвета фонов\текста -
+// удалите это из глобала и используйте локально с нужными цветами
+input:-webkit-autofill {
+  box-shadow: inset 0 0 0 1000px $color-default-white;
+
+  -webkit-text-fill-color: $color-default-black;
+}
 
 // firefox placeholder \ invalid fix + ios bdrs
 input,
@@ -81,15 +90,6 @@ input::-webkit-inner-spin-button {
 
 input[type="number"] {
   appearance: textfield;
-}
-
-// chrome autofill background removal
-// Если на проекте у инпутов используются разные цвета фонов\текста -
-// удалите это из глобала и используйте локально с нужными цветами
-input:-webkit-autofill {
-  box-shadow: inset 0 0 0 1000px $color-white;
-
-  -webkit-text-fill-color: $color-black;
 }
 
 // ios inputs reset

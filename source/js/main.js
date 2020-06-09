@@ -13,4 +13,3 @@ polyfillIe11Download();
 // ---------------------------------
 
 initModals();
-

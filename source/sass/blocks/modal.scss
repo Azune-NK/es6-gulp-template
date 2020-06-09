@@ -30,7 +30,11 @@
     align-items: center;
     width: 100%;
     min-height: 100%;
-    padding: 60px 20px;
+    padding: 60px 40px;
+
+    @include viewport--sm {
+      padding: 60px 16px;
+    }
   }
 
   &__overlay {
@@ -50,8 +54,7 @@
     width: 600px;
     padding: 40px;
 
-    background-color: $color-white;
-    border-radius: 8px;
+    background-color: $color-default-white;
 
     @include viewport--sm {
       width: 100%;
