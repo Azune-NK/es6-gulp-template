@@ -5,13 +5,15 @@ const modalFeedbackBtn = document.querySelectorAll(`[data-modal="feedback"]`);
 const modalSuccess = document.querySelector(`.modal--success`);
 const modalSuccessBtns = document.querySelectorAll(`[data-modal="success"]`);
 
-// аргументы setupModal(modalWindow, modalBtns, openCallback, closeCallback)
+// аргументы setupModal(modal, closeCallback, modalBtns, openCallback, noPrevDefault)
+// возможна инициализация только с первыми аргументом,
+// если вам нужно открывать модалку в другом месте под какими-нибудь условиями
 const initModals = () => {
   if (modalFeedback && modalFeedbackBtn.length) {
-    setupModal(modalFeedback, modalFeedbackBtn, false, false);
+    setupModal(modalFeedback, false, modalFeedbackBtn, false, false);
   }
   if (modalSuccess && modalSuccessBtns.length) {
-    setupModal(modalSuccess, modalSuccessBtns, false, false);
+    setupModal(modalSuccess, false, modalSuccessBtns);
   }
 };
 

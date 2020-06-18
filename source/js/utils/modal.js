@@ -49,15 +49,19 @@ const setModalListeners = (modal, closeCallback) => {
   });
 };
 
-const setupModal = (modalWindow, modalBtns, openCallback, closeCallback) => {
-  modalBtns.forEach((btn) => {
-    btn.addEventListener(`click`, (evt) => {
-      evt.preventDefault();
-      openModal(modalWindow, openCallback);
+const setupModal = (modal, closeCallback, modalBtns, openCallback, noPrevDefault) => {
+  if (modalBtns) {
+    modalBtns.forEach((btn) => {
+      btn.addEventListener(`click`, (evt) => {
+        if (!noPrevDefault) {
+          evt.preventDefault();
+        }
+        openModal(modal, openCallback);
+      });
     });
-  });
+  }
 
-  setModalListeners(modalWindow, closeCallback);
+  setModalListeners(modal, closeCallback);
 };
 
 export {setupModal, openModal, closeModal};
