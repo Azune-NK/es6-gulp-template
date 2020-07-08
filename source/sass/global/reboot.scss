@@ -94,7 +94,7 @@ input[type="number"] {
   appearance: textfield;
 }
 
-// ios inputs reset
+// ios button \ inputs reset
 select,
 textarea,
 input:matches([type="email"],
@@ -104,5 +104,12 @@ input:matches([type="email"],
   [type="tel"],
   [type="text"],
   [type="url"]) {
+  appearance: none;
+}
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
   appearance: none;
 }

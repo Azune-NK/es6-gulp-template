@@ -19,8 +19,6 @@
     transform $modal-transition-settings,
     visibility $modal-transition-settings;
 
-  pointer-events: none;
-
   &__wrapper {
     position: relative;
 
@@ -82,7 +80,5 @@
     transform: scale(1);
     visibility: visible;
     opacity: 1;
-
-    pointer-events: all;
   }
 }

@@ -17,10 +17,9 @@ const closeModal = (modal, callback) => {
     callback();
   }
 
-  enableScrolling();
-  // Если у ваших модалок используется сложная анимация
-  // с задержками между различными слоями - вам может понадобится timeout
-  /* setTimeout(enableScrolling, 300); */
+  // Таймаут нужен, чтобы исключить подергивание,
+  // тайминг стоит менять в зависимости от анимации закрытия
+  setTimeout(enableScrolling, 300);
 };
 
 const onEscPress = (evt, modal, callback) => {
