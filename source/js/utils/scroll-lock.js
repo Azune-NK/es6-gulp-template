@@ -32,7 +32,7 @@ const disableScrolling = () => {
   body.classList.add(`scroll-lock`);
 };
 
-const enableScrolling = () =>{
+const enableScrolling = () => {
   body.removeAttribute(`style`);
   body.classList.remove(`scroll-lock`);
   window.scrollTo(0, +body.dataset.scrollY);
