@@ -1,0 +1,7 @@
+{
+  "semi": true,
+  "arrowParens": "avoid",
+  "trailingComma": "es5",
+  "print-width": 80,
+  "end-of-line": "lf"
+}

@@ -11,3 +11,6 @@ env:
 
 extends:
   "htmlacademy/es6"
+
+plugins:
+  "prettier"

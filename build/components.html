@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="description" content="Project Name - description">
+
+<!-- генерируйте favicon тут - https://realfavicongenerator.net/ -->
+
+<!-- <link href="favicon/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
+<link href="favicon/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
+<link href="favicon/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
+<link href="favicon/site.webmanifest" rel="manifest">
+<link color="#c84659" href="favicon/safari-pinned-tab.svg" rel="mask-icon">
+<link href="favicon/favicon.ico" rel="shortcut icon">
+<meta content="#ffffff" name="msapplication-TileColor">
+<meta content="favicon/browserconfig.xml" name="msapplication-config">
+<meta content="#ffffff" name="theme-color">
+ -->
+
+<!-- используйте только для шрифта находящегося на первом экране -->
+
+<!-- <link rel="preload" href="fonts/placeholder.woff2" as="font" crossorigin="anonymous"> -->
+
+<link rel="stylesheet" href="css/style.min.css">
+
+  <title>Компоненты</title>
+
+  <style>
+    .container {
+      padding-top: 30px;
+      padding-bottom: 30px;
+    }
+
+    .container > a {
+      display: inline-block;
+      margin-bottom: 10px;
+      margin-left: 7px;
+    }
+
+    .container > a span:first-child {
+      position: relative;
+      top: -3px;
+
+      display: inline-block;
+      margin-right: 15px;
+
+      font-size: 16px;
+      line-height: 24px;
+      vertical-align: top;
+
+      transform: scale(2);
+    }
+
+    .container > a span:last-child {
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    .container > a + h1 {
+      margin-bottom: 0;
+    }
+
+    .container > section {
+      padding: 20px 0;
+    }
+  </style>
+
+</head>
+<body>
+
+  <div style="display: none;">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><symbol id="icon-close" viewBox="0 0 20 20"><path d="M.293 18.291a1 1 0 101.414 1.414L10 11.413l8.292 8.292a1 1 0 101.414-1.414l-8.292-8.292 8.292-8.292A1 1 0 1018.291.293L9.999 8.585 1.707.293A1 1 0 10.293 1.707L8.585 10 .293 18.291z"/></symbol></svg>
+  </div>
+
+  <div class="wrapper">
+    <header class="header ">
+  <div class="header__wrapper">
+    <a class="header__logo"  href="main.html" aria-label="Переход на главную">
+      Логотип
+    </a>
+
+    <nav class="main-nav">
+      <button class="main-nav__toggle btn-reset" type="button" aria-label="Переключатель отображения меню" aria-pressed="false">
+        <svg width="20" height="20">
+          <use xlink:href="#icon-burger"></use>
+        </svg>
+      </button>
+      <div class="main-nav__wrapper">
+        <ul class="main-nav__list">
+          <li class="main-nav__item">
+            <a class="main-nav__link "  href="#" >Пункт 1</a>
+          </li>
+          <li class="main-nav__item">
+            <a class="main-nav__link "  href="#" >Пункт 2</a>
+          </li>
+          <li class="main-nav__item">
+            <a class="main-nav__link "  href="#" >Пункт 3</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</header>
+
+
+    <main>
+      <div class="container">
+        <a href="index.html">
+          <span>&larr;</span>
+          <span>вернуться на разводящую</span>
+        </a>
+        <h1>Компоненты, используемые в вёрстке</h1>
+
+        <section>
+          <h2>Название компонента или группы компонентов</h2>
+
+          <p>Класс компонента \ модификаторы</p>
+          <p style="color: red;">При необходимости, подсказки \ предупреждение \ важная информация</p>
+          <div>Компонент</div>
+        </section>
+
+        <!-- Всегда оставляйте коммент ниже, чтобы удобно было копипастить -->
+        <!-- <section>
+          <h2></h2>
+
+          <p></p>
+        </section> -->
+      </div>
+    </main>
+
+    <footer class="footer"></footer>
+
+  </div>
+
+  <script src="js/vendor.min.js"></script>
+  <script src="js/main.min.js"></script>
+</body>
+</html>

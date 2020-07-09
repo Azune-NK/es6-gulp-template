@@ -1,6 +1,6 @@
-import {polyfills} from './utils/polyfills';
+import { polyfills } from "./utils/polyfills";
 
-import {initModals} from './modules/init-modals';
+import { initModals } from "./modules/init-modals";
 
 // Utils
 // ---------------------------------

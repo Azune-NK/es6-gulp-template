@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="description" content="Project Name - description">
+
+<!-- генерируйте favicon тут - https://realfavicongenerator.net/ -->
+
+<!-- <link href="favicon/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
+<link href="favicon/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
+<link href="favicon/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
+<link href="favicon/site.webmanifest" rel="manifest">
+<link color="#c84659" href="favicon/safari-pinned-tab.svg" rel="mask-icon">
+<link href="favicon/favicon.ico" rel="shortcut icon">
+<meta content="#ffffff" name="msapplication-TileColor">
+<meta content="favicon/browserconfig.xml" name="msapplication-config">
+<meta content="#ffffff" name="theme-color">
+ -->
+
+<!-- используйте только для шрифта находящегося на первом экране -->
+
+<!-- <link rel="preload" href="fonts/placeholder.woff2" as="font" crossorigin="anonymous"> -->
+
+<link rel="stylesheet" href="css/style.min.css">
+
+  <title>ProjectName — Главная</title>
+
+</head>
+<body>
+
+  <div style="display: none;">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><symbol id="icon-close" viewBox="0 0 20 20"><path d="M.293 18.291a1 1 0 101.414 1.414L10 11.413l8.292 8.292a1 1 0 101.414-1.414l-8.292-8.292 8.292-8.292A1 1 0 1018.291.293L9.999 8.585 1.707.293A1 1 0 10.293 1.707L8.585 10 .293 18.291z"/></symbol></svg>
+  </div>
+
+  <div class="wrapper">
+    <header class="header ">
+  <div class="header__wrapper">
+    <a class="header__logo"  aria-label="Переход на главную">
+      Логотип
+    </a>
+
+    <nav class="main-nav">
+      <button class="main-nav__toggle btn-reset" type="button" aria-label="Переключатель отображения меню" aria-pressed="false">
+        <svg width="20" height="20">
+          <use xlink:href="#icon-burger"></use>
+        </svg>
+      </button>
+      <div class="main-nav__wrapper">
+        <ul class="main-nav__list">
+          <li class="main-nav__item">
+            <a class="main-nav__link "  href="#" >Пункт 1</a>
+          </li>
+          <li class="main-nav__item">
+            <a class="main-nav__link "  href="#" >Пункт 2</a>
+          </li>
+          <li class="main-nav__item">
+            <a class="main-nav__link "  href="#" >Пункт 3</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</header>
+
+
+    <main>
+      <div class="container">
+        <p><a href="#" data-modal="feedback">modal--feedback link</a></p>
+        <p><a href="#" data-modal="success">modal--success link</a></p>
+      </div>
+    </main>
+
+    <footer class="footer"></footer>
+
+
+    <div class="modal modal--feedback   ">
+  <div class="modal__wrapper">
+    <div class="modal__overlay"></div>
+    <div class="modal__content">
+
+      <p>Я обычная модалка</p>
+
+
+      <button class="modal__close-btn btn-reset" type="button" aria-label="Закрыть попап">
+        <svg width="15" height="15">
+          <use xlink:href="#icon-close"></use>
+        </svg>
+      </button>
+
+    </div>
+  </div>
+</div>
+
+
+    <div class="modal modal--success  modal--responsive   modal--no-scale   modal--some-mod ">
+  <div class="modal__wrapper">
+    <div class="modal__overlay"></div>
+    <div class="modal__content">
+
+      <p>А я резиновая и без скейла, а еще в меня передали новый модификатор!</p>
+
+
+      <button class="modal__close-btn btn-reset" type="button" aria-label="Закрыть попап">
+        <svg width="15" height="15">
+          <use xlink:href="#icon-close"></use>
+        </svg>
+      </button>
+
+    </div>
+  </div>
+</div>
+
+  </div>
+
+  <script src="js/vendor.min.js"></script>
+  <script src="js/main.min.js"></script>
+</body>
+</html>
