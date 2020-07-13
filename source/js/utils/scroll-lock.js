@@ -11,7 +11,7 @@ const getScrollbarWidth = () => {
   outer.appendChild(inner);
   const scrollbarWidth = (outer.offsetWidth - inner.offsetWidth);
   outer.parentNode.removeChild(outer);
-  if (outer.offsetWidth !== inner.offsetWidth) {
+  if (body.offsetHeight > window.innerHeight) {
     return scrollbarWidth;
   }
 };
