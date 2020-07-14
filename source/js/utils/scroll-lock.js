@@ -24,9 +24,11 @@ const getBodyScrollTop = () => {
   );
 };
 
-const disableScrolling = () => {
-  const scrollWidth = getScrollbarWidth();
-  body.setAttribute(`style`, `padding-right: ` + scrollWidth + `px;`);
+const disableScrolling = (noScrollbar) => {
+  if (!noScrollbar) {
+    const scrollWidth = getScrollbarWidth();
+    body.setAttribute(`style`, `padding-right: ` + scrollWidth + `px;`);
+  }
   body.dataset.scrollY = `${getBodyScrollTop()}`;
   body.style.top = `-${body.dataset.scrollY}px`;
   body.classList.add(`scroll-lock`);

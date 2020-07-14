@@ -19,6 +19,13 @@
     transform $modal-transition-settings,
     visibility $modal-transition-settings;
 
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
   &__wrapper {
     position: relative;
 
