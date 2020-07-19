@@ -1,9 +1,9 @@
 import {setupModal} from '../utils/modal';
 
-const modalFeedback = document.querySelector(`.modal--feedback`);
-const modalFeedbackBtn = document.querySelectorAll(`[data-modal="feedback"]`);
-const modalSuccess = document.querySelector(`.modal--success`);
-const modalSuccessBtns = document.querySelectorAll(`[data-modal="success"]`);
+const modalFeedback = document.querySelector('.modal--feedback');
+const modalFeedbackBtn = document.querySelectorAll('[data-modal="feedback"]');
+const modalSuccess = document.querySelector('.modal--success');
+const modalSuccessBtns = document.querySelectorAll('[data-modal="success"]');
 
 // аргументы setupModal(modal, closeCallback, modalBtns, openCallback, noPrevDefault)
 // возможна инициализация только с первыми аргументом,

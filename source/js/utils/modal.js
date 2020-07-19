@@ -1,7 +1,7 @@
 import {disableScrolling, enableScrolling} from './scroll-lock';
 
 const openModal = (modal, callback) => {
-  modal.classList.add(`modal--active`);
+  modal.classList.add('modal--active');
 
   if (callback) {
     callback();
@@ -11,7 +11,7 @@ const openModal = (modal, callback) => {
 };
 
 const closeModal = (modal, callback) => {
-  modal.classList.remove(`modal--active`);
+  modal.classList.remove('modal--active');
 
   if (callback) {
     callback();
@@ -23,27 +23,27 @@ const closeModal = (modal, callback) => {
 };
 
 const onEscPress = (evt, modal, callback) => {
-  const isEscKey = evt.key === `Escape` || evt.key === `Esc`;
+  const isEscKey = evt.key === 'Escape' || evt.key === 'Esc';
 
-  if (isEscKey && modal.classList.contains(`modal--active`)) {
+  if (isEscKey && modal.classList.contains('modal--active')) {
     evt.preventDefault();
     closeModal(modal, callback);
   }
 };
 
 const setModalListeners = (modal, closeCallback) => {
-  const overlay = modal.querySelector(`.modal__overlay`);
-  const closeBtn = modal.querySelector(`.modal__close-btn`);
+  const overlay = modal.querySelector('.modal__overlay');
+  const closeBtn = modal.querySelector('.modal__close-btn');
 
-  closeBtn.addEventListener(`click`, () => {
+  closeBtn.addEventListener('click', () => {
     closeModal(modal, closeCallback);
   });
 
-  overlay.addEventListener(`click`, () => {
+  overlay.addEventListener('click', () => {
     closeModal(modal, closeCallback);
   });
 
-  document.addEventListener(`keydown`, (evt) => {
+  document.addEventListener('keydown', (evt) => {
     onEscPress(evt, modal, closeCallback);
   });
 };
@@ -51,7 +51,7 @@ const setModalListeners = (modal, closeCallback) => {
 const setupModal = (modal, closeCallback, modalBtns, openCallback, noPrevDefault) => {
   if (modalBtns) {
     modalBtns.forEach((btn) => {
-      btn.addEventListener(`click`, (evt) => {
+      btn.addEventListener('click', (evt) => {
         if (!noPrevDefault) {
           evt.preventDefault();
         }
